@@ -154,6 +154,7 @@ def update_eda_plot(selected_plot):
         med_month = df_eda.groupby(['Medication', 'Season'], observed=True)['Sales'].mean().reset_index()
         heatmap_data = med_month.pivot(index='Medication', columns='Season', values='Sales')[['Winter', 'Spring', 'Summer', 'Fall']]
         fig = px.imshow(heatmap_data, text_auto='.1f', color_continuous_scale='YlOrRd', title=selected_plot)
+        fig.update_coloraxes(colorbar_title="Avg Sales")
         return wrap_plot(fig, selected_plot)
 
     if selected_plot == 'Sales Trends by Region (Line Plot)':
