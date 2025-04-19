@@ -64,6 +64,9 @@ sarima_results = sarima_model.fit(disp=False)
 app = dash.Dash(__name__, suppress_callback_exceptions=True)
 app.title = "Medication Demand Prediction"
 
+# REQUIRED for Render Deployment
+server = app.server
+
 
 # ----------------- Layouts -----------------
 
